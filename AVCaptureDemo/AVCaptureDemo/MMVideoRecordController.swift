@@ -63,6 +63,7 @@ class MMVideoRecordController: UIViewController {
     //MARK: - life cycle
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.timer.invalidate()
         self.timer = nil
     }
 
@@ -93,6 +94,7 @@ class MMVideoRecordController: UIViewController {
 
     deinit {
         session.stopRunning()
+        print(">>>>>>deint")
     }
 }
 
@@ -167,7 +169,6 @@ extension MMVideoRecordController {
         if duration >= 10 && duration < 60 {
             text = "00:\(duration)"
         }
-        
         if duration >= 60 {
             let s = duration % 60
             let min = duration / 60

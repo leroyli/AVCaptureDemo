@@ -56,6 +56,7 @@ class MMAudioRecordController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.timer.invalidate()
         self.timer = nil
     }
     
@@ -73,7 +74,7 @@ class MMAudioRecordController: UIViewController {
     }
     
     deinit {
-        
+        print(">>>>>>deinit")
     }
 }
 
